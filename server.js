@@ -25,6 +25,6 @@ app.get('/login', function (req, res) {
 
 app.post('/authenticate', loginHandler.authenticate);
 
-app.listen(3000, function () {
+app.listen(80, function () {
     console.log('app listening on port 3000!')
 })
