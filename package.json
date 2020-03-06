@@ -1,0 +1,26 @@
+{
+  "name": "fypwebsite",
+  "version": "0.0.1",
+  "description": "Admin Website for the Application A View To The Past",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo no tests here",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bopojoe/fypWebsite.git"
+  },
+  "author": "James O'Rourke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bopojoe/fypWebsite/issues"
+  },
+  "homepage": "https://github.com/bopojoe/fypWebsite#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "firebase": "^7.9.3"
+  }
+}
