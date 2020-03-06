@@ -25,8 +25,9 @@ app.get('/login', function (req, res) {
 
 app.post('/authenticate', loginHandler.authenticate);
 
-// app.listen(80, function () {
-//     console.log('app listening on port 3000!')
-// })
+const PORT = process.env.PORT || 3000;
 
-module.exports = app;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
+
