@@ -23,6 +23,10 @@ app.get('/login', function (req, res) {
     res.render('login');
 })
 
+app.get('/loggedIn', function (req, res) {
+    res.render('loggedIn');
+})
+
 app.post('/authenticate', loginHandler.authenticate);
 
 const PORT = process.env.PORT || 3000;
