@@ -7,6 +7,9 @@ const googleStorage = require('@google-cloud/storage');
 const formidable = require('formidable')
 const config = require("./configs/firebase")
 
+var fileName = "";
+var filePath = "";
+
 function upload(filepath, name ) {
   
 const {Storage} = require('@google-cloud/storage');
@@ -79,12 +82,12 @@ app.post('/upload', (req, res) => {
 
   form.on('file',  (name, file) => {
       console.log(`Uploaded ${file.name} locally`);
-      upload(file.path, file.name)
+      
   });
   
   res.render('loggedIn')
   //res.sendFile(__dirname + '/uploads');
-
+  //upload(file.path, file.name)
 })
 
 
