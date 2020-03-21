@@ -1,7 +1,20 @@
 let express = require('express');
 let handler = express.Router();
 
-var firebase = require("firebase/app");
+var list = []; 
+
+
+
+handler.returnItems =  (req, res) => {
+  let firebase = require("firebase/app");
+var user = firebase.auth().currentUser;
+
+if (user) {
+  console.log(user)
+} else {
+  console.log("no user here...")
+}
+
 
 // Get a reference to the storage service, which is used to create references in your storage bucket
 var storage = firebase.storage();
@@ -19,10 +32,12 @@ listRef.listAll().then(function(res) {
     // You may call listAll() recursively on them.
   });
   res.items.forEach(function(itemRef) {
-    // All the items under listRef.
+    list.push(itemRef);
   });
 }).catch(function(error) {
   // Uh-oh, an error occurred!
 });
+res.JSON(list);
+}
 
 exports.handler;
