@@ -79,10 +79,10 @@ app.post('/upload',async (req, res) => {
 
   form.on('file', async (name, file) => {
       console.log(`Uploaded ${file.name} locally`);
-
       await upload(file.path, file.name)
   });
-  res.render('index')
+  
+  res.render('loggedIn')
   //res.sendFile(__dirname + '/uploads');
 
 })
