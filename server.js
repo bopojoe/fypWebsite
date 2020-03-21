@@ -67,7 +67,7 @@ app.get('/loggedIn', function (req, res) {
 
 app.post('/authenticate', loginHandler.authenticate);
 
-app.post('/upload',async (req, res, next) => {
+app.post('/upload',async (req, res) => {
   var form = new formidable.IncomingForm();
 
   form.parse(req);
