@@ -1,7 +1,45 @@
 const express = require('express')
 const app = express()
 const loginHandler = require("./handlers/login");
+const printItems = require("./handlers/returnItems")
 var bodyParser = require('body-parser')
+const googleStorage = require('@google-cloud/storage');
+const formidable = require('formidable')
+const config = require("./configs/firebase")
+
+async function upload(filepath, name ) {
+  
+const {Storage} = require('@google-cloud/storage');
+
+// Creates a client
+const storage = new Storage({
+    projectId: config.projectId,
+    keyFilename: "./configs/iosappfyp-users.json"
+});
+
+const bucket = storage.bucket(config.storageBucket);
+const bucketName = config.storageBucket;
+async function uploadFile() {
+  // Uploads a local file to the bucket
+  await storage.bucket(bucketName).upload(filepath, {
+    // Support for HTTP requests made with `Accept-Encoding: gzip`
+    gzip: true,
+    destination: "models/"+name||null, 
+    // object you are uploading to a bucket.
+    metadata: {
+      cacheControl: 'no-cache',
+    },
+  });
+
+  console.log(`${name||null} uploaded to ${bucketName}.`);
+}
+
+uploadFile().catch((err)=> {
+    console.log("error here",err)
+});
+// [END storage_upload_file]
+}
+
 app.set('view engine', 'ejs')
 
 // parse application/x-www-form-urlencoded
@@ -23,7 +61,33 @@ app.get('/login', function (req, res) {
     res.render('login');
 })
 
+app.get('/loggedIn', function (req, res) {
+    res.render('loggedIn');
+})
+
 app.post('/authenticate', loginHandler.authenticate);
+
+app.post('/upload',async (req, res, next) => {
+  var form = new formidable.IncomingForm();
+
+  form.parse(req);
+
+  form.on('fileBegin', (name, file) => {
+      file.path = __dirname + '/uploads/' + file.name;
+
+  });
+
+  form.on('file', async (name, file) => {
+      console.log(`Uploaded ${file.name} locally`);
+
+      await upload(file.path, file.name)
+  });
+  res.render('index')
+  //res.sendFile(__dirname + '/uploads');
+
+})
+
+
 
 const PORT = process.env.PORT || 3000;
 

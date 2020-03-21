@@ -26,7 +26,7 @@ handler.authenticate =  (req, res) => {
         if (user) {
             console.log(`user joged in with id ${user.uid}`);
             isUser = true;
-            res.redirect("/");
+            res.redirect("/loggedIn");
 
         } else {
             console.log("no user");
