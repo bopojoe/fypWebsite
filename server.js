@@ -7,7 +7,7 @@ const googleStorage = require('@google-cloud/storage');
 const formidable = require('formidable')
 const config = require("./configs/firebase")
 
-async function upload(filepath, name ) {
+function upload(filepath, name ) {
   
 const {Storage} = require('@google-cloud/storage');
 
@@ -67,7 +67,7 @@ app.get('/loggedIn', function (req, res) {
 
 app.post('/authenticate', loginHandler.authenticate);
 
-app.post('/upload',async (req, res) => {
+app.post('/upload', (req, res) => {
   var form = new formidable.IncomingForm();
 
   form.parse(req);
@@ -77,9 +77,9 @@ app.post('/upload',async (req, res) => {
 
   });
 
-  form.on('file', async (name, file) => {
+  form.on('file',  (name, file) => {
       console.log(`Uploaded ${file.name} locally`);
-      await upload(file.path, file.name)
+      upload(file.path, file.name)
   });
   
   res.render('loggedIn')
