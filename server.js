@@ -68,6 +68,7 @@ app.get('/loggedIn', function (req, res) {
     res.render('loggedIn');
 })
 
+
 app.post('/authenticate', loginHandler.authenticate);
 
 app.post('/upload', (req, res) => {

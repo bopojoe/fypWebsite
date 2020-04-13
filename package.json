@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo no tests here",
-    "start": "node server.js"
+    "start": "start http://localhost:3000 && node server.js",
+    "startMac": "open http://localhost:3000 && node server.js"
   },
   "repository": {
     "type": "git",
