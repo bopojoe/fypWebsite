@@ -27,7 +27,7 @@ async function uploadFile() {
   await storage.bucket(bucketName).upload(filepath, {
     // Support for HTTP requests made with `Accept-Encoding: gzip`
     gzip: true,
-    destination: "models/"+name||null, 
+    destination: "images/"+name||null, 
     // object you are uploading to a bucket.
     metadata: {
       cacheControl: 'no-cache',
@@ -69,6 +69,7 @@ app.get('/loggedIn', function (req, res) {
 })
 
 
+
 app.post('/authenticate', loginHandler.authenticate);
 
 app.post('/upload', (req, res) => {
@@ -83,12 +84,12 @@ app.post('/upload', (req, res) => {
 
   form.on('file',  (name, file) => {
       console.log(`Uploaded ${file.name} locally`);
-      
+      upload(file.path, file.name)
   });
   
   res.render('loggedIn')
   //res.sendFile(__dirname + '/uploads');
-  //upload(file.path, file.name)
+  
 })
 
 

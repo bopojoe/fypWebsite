@@ -2,6 +2,12 @@
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
     <meta charset="utf-8">
     <title>Login</title>
     <style>
@@ -49,6 +55,17 @@
         body {
             background: #F2E8DF;
         }
+
+        .imageBody {
+            align-self: center;
+            padding-left:50%;
+        }
+        .form {
+            padding-left: 10%;
+            background: #1F2A40;
+        }
+
+      
     </style>
      <!-- The core Firebase JS SDK is always required and must be listed first -->
      <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
@@ -57,22 +74,41 @@
      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
    <!-- <script language="javascript" type="text/javascript" src="../handlers/returnItems.js"></script> -->
 </head>
-</head>
+
 
 <body>
     <nav>
-        <div><img src= assets/fypIcon.jpg alt="Logo img" height="512" width="512">
-        </div>
         <ul>
             <li><a href="login">Login</a></li>
             <li><a href="/">Homepage</a></li>
         </ul>
     </nav>
-    <img src= "https://imgur.com/MJ91z7k" alt="Logo img">
-    <form action="/upload" method="post" enctype="multipart/form-data">
+
+    <div class="ui four column grid">
+        <div class="row">
+          <div class="column">sdfgh</div>
+          <div class="column">fdgsdf</div>
+          <div class="column">sdfgsdf</div>
+        </div>
+        <div class="column">dfsgsdf</div>
+        <div class="column">hghdfgh</div>
+        <div class="column">dfdeefger</div>
+        <div class="column">hhyngdfff</div>
+      </div>
+    
+    <div class= imageBody>
+        <img src= https://i.imgur.com/MJ91z7k.png alt="Logo img" height="128" width="128"></img>
+    </div>
+    <div class="ui left icon input">
+        <input type="text" placeholder="enter description one ..">
+      </div>
+
+<div class = form>
+    <form  action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="filetoupload"><br>
         <input type="submit">
    </form>
+</div>
 </body>
 
 </html>
