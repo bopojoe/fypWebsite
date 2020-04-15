@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Admin Website for the Application A View To The Past",
   "main": "server.js",
+  "engines": {
+    "node": "8.17.0",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "test": "echo no tests here",
     "start": "node server.js",
