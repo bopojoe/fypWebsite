@@ -83,8 +83,7 @@ app.post('/upload', (req, res) => {
 
   form.on('fileBegin', (name, file) => {
       console.log("first print ", file)
-      file.path = '/tmp/' + file.name;
-      filepath = '/tmp/' + file.name;
+      filepath =  file.path
       upload(file.path, file.name)
   });
 
