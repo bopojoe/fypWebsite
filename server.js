@@ -11,6 +11,8 @@ var fileName = "";
 var filePath = "";
 
 function upload(filepath, name ) {
+    console.log("filepath", filePath);
+    console.log("name", name);
   
 const {Storage} = require('@google-cloud/storage');
 
@@ -77,14 +79,18 @@ app.post('/upload', (req, res) => {
 
   form.parse(req);
 
-  form.on('fileBegin', (name, file) => {
-      file.path = '/tmp/' + file.name;
+  console.log(res.json);
 
+  form.on('fileBegin', (name, file) => {
+      console.log("first print ", file)
+      file.path = '/tmp/' + file.name;
+      filepath = '/tmp/' + file.name;
+      upload(file.path, file.name)
   });
 
   form.on('file',  (name, file) => {
       console.log(`Uploaded ${file.name} locally`);
-      upload(file.path, file.name)
+      
   });
   
   res.render('loggedIn')
