@@ -51,13 +51,21 @@
             background: #F2E8DF;
         }
 
+        p {
+            padding-left: 10%;
+        }
+
         .imageBody {
             align-self: center;
             padding-left:50%;
         }
         .form {
             padding-left: 10%;
-            background: #1F2A40;
+           
+        }
+        #boxes{
+            padding-left: 10%;
+           
         }
 
       
@@ -85,25 +93,12 @@
         </ul>
     </nav>
 
-    <div class="ui four column grid">
-        <div class="row">
-          <div class="column">sdfgh</div>
-          <div class="column">fdgsdf</div>
-          <div class="column">sdfgsdf</div>
-        </div>
-        <div class="column">dfsgsdf</div>
-        <div class="column">hghdfgh</div>
-        <div class="column">dfdeefger</div>
-        <div class="column">hhyngdfff</div>
-      </div>
-    
-    <div class= imageBody>
-        <img src= https://i.imgur.com/MJ91z7k.png alt="Logo img" height="128" width="128"></img>
-    </div>
-    <div class="ui left icon input">
+    <div id = boxes class="ui left icon input">
         <input type="text" placeholder="enter description one ..">
       </div>
 
+
+<p>Model file for upload</p>
 <div class = form>
     <form  action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="filetoupload"><br>
